@@ -1,5 +1,4 @@
 import Rating from "../components/Rating";
-import {Link} from "react-router-dom";
 import {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {detailsProduct} from "../actions/productActions";
@@ -23,7 +22,7 @@ const ProductScreen = (props) => {
       <div>
           {loading ? <LoadingBox /> : error ? <MessageBox variant="danger" message={error}/> :
               <div>
-                  <Link to="/">Go Home</Link>
+                  <a href="/">Go Home</a>
                   <div className="row top">
                       <div className="col-2">
                           <img className="large" src={product.image} alt={product.name}/>

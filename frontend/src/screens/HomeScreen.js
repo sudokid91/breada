@@ -12,7 +12,7 @@ const HomeScreen = () => {
     const {loading, error, products} = productsList;
     useEffect(() => {
         dispatch(listProducts());
-    }, []);
+    }, [dispatch]);
     return (
         <div>
             {loading ? <LoadingBox /> : error ? <MessageBox variant="danger" message={error}/> : (
