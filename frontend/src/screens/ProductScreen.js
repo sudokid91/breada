@@ -1,4 +1,3 @@
-import data from "../data";
 import Rating from "../components/Rating";
 import {Link} from "react-router-dom";
 import {useState, useEffect} from "react";
@@ -8,18 +7,18 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 const ProductScreen = (props) => {
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
     const [qty, setQty] = useState(1);
     const productId = props.match.params.id;
     const productDetails = useSelector((state) => state.productDetails);
     const {loading, error, product} = productDetails;
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(detailsProduct(productId));
     }, [dispatch, productId]);
     const handleAddToCart = () => {
         props.history.push(`/cart/${productId}?qty=${qty}`);
-    }
+    };
     return (
       <div>
           {loading ? <LoadingBox /> : error ? <MessageBox variant="danger" message={error}/> :
